@@ -4,8 +4,8 @@ function Decoder(b, port) {
             case 2:
             var lat = (b[0] | b[1]<<8 | b[2]<<16 | (b[2] & 0x80 ? 0xFF<<24 : 0)) / 10000.0;
             var lon = (b[3] | b[4]<<8 | b[5]<<16 | (b[5] & 0x80 ? 0xFF<<24 : 0)) / 10000.0;
-            var alt = (b[6] | b[7]<<8 | (b[8] & 0x80 ? 0xFFFF<<16 : 0)) / 100.0;
-            var hdop = b[9] / 10.0;
+            var alt = (b[6] | b[7]<<8 | (b[7] & 0x80 ? 0xFFFF<<16 : 0)) / 100.0;
+            var hdop = b[8] / 10.0;
 
             decoded = {
                 "location": {
